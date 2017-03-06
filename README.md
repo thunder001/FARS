@@ -1,2 +1,3 @@
 # FARS
-![alt tag](https://github.com/thunder001/FARS/blob/master/passing.svg)
+
+[![Build Status](https://travis-ci.org/thunder001/FARS.svg?branch=master)](https://travis-ci.org/thunder001/FARS)
