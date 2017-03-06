@@ -1,0 +1,48 @@
+---
+title: "tutorial"
+author: "Chunlei Zheng"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{tutorial}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+```{r load_library}
+library(dplyr)
+library(graphics)
+library(maps)
+library(FARS)
+```
+## 1. Overview
+      American public yearly data regarding fatal injuries suffered in motor vehicle traffic crashes are stored in Fatality Analysis Reporting System (FARS). This package is developed to access and explore the data convinently. It can also visualize the data in a nice state map.
+      
+## 2. Read data
+
+### 2.1 Read data of single year
+```{r single year}
+fname <- system.file("extdata","accident_2013.csv.bz2", package="FARS")
+dat <- fars_read(fname)
+dat[1:6, 1:6]
+```
+### 2.2 Read data of multiple years
+```{r multiple years}
+dname <- system.file("extdata", package="FARS")
+setwd(dname)
+dat <- fars_read_years(c(2013, 2014, 2015))
+length(dat)
+```
+## 3. Summary fatal injury data
+```{r summarize}
+setwd(dname)
+dat <- fars_summarize_years(c(2013, 2014,2015))
+head(dat)
+```
+## 4. Visualize fatal injury data of a state in given year
+```{r visualize}
+setwd(dname)
+fars_map_state(17, 2015)
+```
+
+
+
