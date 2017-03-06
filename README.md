@@ -1,2 +1,2 @@
 # FARS
-![alt tag](https://www.github.com/thunder001/FARS/passing.svg)
+![alt tag](https://github.com/thunder001/FARS/blob/master/passing.svg)
